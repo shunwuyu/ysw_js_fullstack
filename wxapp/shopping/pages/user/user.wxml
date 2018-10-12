@@ -1,0 +1,10 @@
+<view class="main"> 
+  <view class="header">
+    <open-data class="thumb" type="userAvatarUrl">
+    </open-data>
+    <open-data class="nickname"
+    lang="zh_CN" type="userNickName">
+    </open-data>
+    <text class="about">关于我们</text>
+  </view>
+</view>

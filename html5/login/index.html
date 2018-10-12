@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解锁页</title>
+  <script>
+  // 所有css之前， 我先来决定html font-size应该是多少？ 1rem = 设备宽度/10
+  (function(w) {
+    // 找到html ?
+    // window是全局
+    let s  = w.document;
+    let html = s.documentElement;
+    // console.log(html.clientWidth);
+    let colWidth = html.clientWidth/10
+    html.style.fontSize = colWidth + 'px';
+  })(window)
+  </script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .box {
+    /* 等比例缩放 */
+    /* 50% */
+
+    width: 10rem;
+    height: 10rem;
+    /* background: red;
+    bord */
+    border: 1px solid red;
+    /* plus  1rem =  宽度/10
+    rem 去做大小， 就可以信赖
+    只要在所有设备上都保证rem 与设备宽度之间的关系就可以放心使用rem了。  */
+
+    border-radius:50%;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+  </div>
+</body>
+</html>

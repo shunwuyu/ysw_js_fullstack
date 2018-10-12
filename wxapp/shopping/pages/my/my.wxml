@@ -1,0 +1,6 @@
+<view class="main">
+  <div class="header">
+    <open-data class="thumb" type="userAvatarUrl">
+    </open-data>
+  </div>
+</view>

@@ -1,0 +1,60 @@
+<template>
+  <view>
+  <!-- ？ 小程序 wxml 组件 ui 编程很简单， low 切页面 
+  wepy mpvue vue  先把页面拆分成组件
+  bombscreen ？内置的组件
+  自定义的html标签 组件将一组功能封装到一个
+  component里，前且在页面上可以用自定义标签的
+  形式引入。
+  component  -->
+  <!-- 首页列表 不在注意细节，而是分组件-->
+  <!-- 组件暂无数据的提示 -->
+  <!-- 幻灯片 -->
+  <discover></discover>
+  <bottomLoadMore :message='mes' :show.sync="showLoading"></bottomLoadMore>
+  <placeholder></placeholder>
+  <!-- 弹出广告 -->
+  <bombscreen></bombscreen>
+
+  <comment>
+    <comment-input/>
+    <comment-list>
+      <comment-item />
+      <comment-item />
+      <comment-item />
+    </comment-list>
+  </comment>
+</template>
+<script>
+  // wepy 在本地的node_modules 下
+  import wepy from 'wepy'
+  // 将页面换一个视角（切页面）,组件视角(粗，大体)
+  import Discover from '@/components/discover';
+  import BottomLoadMore from '@/components/bottomLoadMore'
+  import Placeholder from '@/components/placeholder'
+  import Bombscreen from '@/components/bomb_screen';
+  // 单页面组件
+  export default class Home extends wepy.page {
+    // 不是json , es6 class 
+    data = {
+      showLoading: true,
+      mes: '加载更多...'
+    }
+
+    onLoad () {
+      this.showLoading = true;
+    }
+    // 页面的组件构成 多人协作，将复杂度细化，
+    // 可读性更强
+    components = {
+      bombscreen: Bombscreen,
+      placeholder: Placeholder,
+      bottomLoadMore: BottomLoadMore,
+      discover: Discover
+    }
+  }
+
+</script>
+<style lang="less">
+
+</style>

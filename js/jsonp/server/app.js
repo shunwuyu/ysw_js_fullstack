@@ -1,0 +1,19 @@
+const Koa = require('koa');
+const app = new Koa();
+const router = require('koa-router')();
+router.get('/api', (ctx) => {
+  const data = {
+    name: 'zk',
+    age: 18
+  }
+  const callback = ctx.query.jsonpcallback;
+  console.log(callback);
+  if (callback) {
+    ctx.body = callback  + '(' + JSON.stringify(data) + ')';
+  } else {
+    ctx.body = data;
+  }
+  
+})
+app.use(router.routes());
+app.listen(3000);
